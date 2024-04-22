@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>PEC 2 M2.859 - Visualización de datos - UOC</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2020.css">
+
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+.w3-third img:hover{opacity: 1}
+</style>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center w3-2020-navy-blazer" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <img src="img/uoc.jpg" alt="" width="200px;">
+  <h3 class="w3-padding-64 w3-center"><b>M2.859 - Aula 2</b><br>PEC 2</h3>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">Cerrar</a>
+  <a href="#presentacion" onclick="w3_close()" class="w3-bar-item w3-button">Presentación</a> 
+  <a href="#radar" onclick="w3_close()" class="w3-bar-item w3-button">Radar chart</a> 
+  <a href="#ridgeline" onclick="w3_close()" class="w3-bar-item w3-button">Ridgeline chart</a>
+  <a href="#heatmap" onclick="w3_close()" class="w3-bar-item w3-button">Heatmap</a>
+  <a href="#referencias" onclick="w3_close()" class="w3-bar-item w3-button">Referencias</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">M2.859</span>
+  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Push down content on small screens --> 
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  
+  <div id="presentacion" class="w3-container w3-padding-32">
+    <h2>UOC - Máster Universitario en Ciencia de Datos</h2>
+    <h2>M2.859 - Visualización de datos - Aula 2</h2>
+    <h2>PEC 2</h2>
+    <h3>Docentes:</h3>
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Julià Minguillón Alfonso <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ramon Caihuelas Quiles </h3>
+    <h3>Alumno:</h2>
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cuauhtémoc Alejandro Medina Uicab</h3>
+
+    <h3>Fecha de entrega:</h3>
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abril 22, 2024</h4>
+    <br><br><br>
+    <h2>Visualizaciones</h2>
+    
+    <div class="w3-row">
+      <div class="w3-col s4  w3-center"><h3>Radar chart</h3>
+        <img src="img/radar.png" alt="radar chart">
+      </div>
+      <div class="w3-col s4  w3-center"><h3>Ridgeline chart</h3>
+        <img src="img/ridgeline.png" alt="radar chart">
+      </div>
+      <div class="w3-col s4  w3-center"><h3>Heatmap</h3>
+        <img src="img/heatmap.png" alt="radar chart">
+      </div>
+    </div>
+    <br>
+    <h2>Publicación:</h2>
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="">kmualex.github.com/PEC2</a></h2>
+    <br><br>
+  </div>
+
+  <!-- About section -->
+  <div class="w3-container w3-dark-grey w3-text-light-grey w3-padding-32" id="radar">
+    <h2><b>Radar chart</b></h2>
+
+
+  </div>
+  <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+    <div class="w3-content" style="max-width:800px">
+      <h4>Nombre:</h4>
+      <p>Conocida tambien por: gráfica de estrella, gráfica de red, diagrama de Kiviat, polígono irregular, gráfica polar, gráfica cobweb <sup>1</sup> , etc. </p>
+      <h4>Origen:</h4>
+      <p>El origen de gráfica es controvertido. Se puede rastrear en los trabajos de André-Michel Guerry (1829)<sup>2</sup> o bien en los trabajos de Florence Nightingale en 1858<sup>3</sup> al servicio del ejército británico. Lo común es asociar su creación con el alemán Georg von Mayr en 1877<sup>4</sup> </p>      
+      <div class="w3-container">
+        <div class="w3-third">
+          <img src="img/guerry.png" alt="" width="200px;">
+        </div> 
+        <div class="w3-third">
+          <img src="img/florence.png" alt="" width="200px;">
+        </div> 
+        <div class="w3-third">
+          <img src="img/mayr.png" alt="" width="200px;">
+        </div> 
+      </div>
+      <h4>Descripción/funcionamiento:</h4>
+      <p>Las gráficas de radar facilitan la comparación entre múltiples variables cuantitativas y consisten en múltiples ejes, donde cada eje representa una sola variable arreglados radialmente. Normalemente los valores adjacentes son conectados por líneas. Son útiles para visualizar qué variables tiene valores similares y también para determinar que variables poseen puntuaciones "altas" o "bajas" dentro del conjunto de datos<sup>5</sup></p>
+      <h4>Ejemplos de aplicación:</h4>
+      <p>Análsis de desempeño, comparación de datos multivariados, relación entre variables, despliegue de datos periódicos o cíclicos dónde la disposición circular acentúe los patrones de comportamiento de las variables, cuando se desea comparar dos o mas variables o productos sobre un rango de características.</p>
+      <h4>Tipo de datos:</h4>
+      <p>La representación está diseñada principalemente para representar datos cuantitativos. Los ejes emplean datos categóricos. El juego de datos debe ser positivo y normalmente debe estar normalizado. No hay limitación en cuanto a los datos cuantitativos pero sí en cuanto a la cantidad de ejes y a la cantidad de variable de comparación entre 1 a máximo 5.</p>
+      <h4>Limitaciones</h4>
+      <p>Debido a su disposición radial/circular es difícil de interpretar. El orden de las catagorías tiene un enorme impacto. Las variariones en las áreas no son lineales. Limitado número de categorías representables. Los ejes no comparten las misma escalas siempre. Los traslapes pueden hacer ilegible la gráfica<sup>6</sup>. De acuerdo con Graham Odds <sup>7</sup> y Stephen Few<sup>8</sup> el uso de este tipo de gráficas es desaconsejable y se sugiere considerar siempre alternativas de representación.</p>
+      <div class="w3-center">
+        <img src="img/few.png" alt="" width="400px;"><br>
+        <i>Imagen de: "Kep Radar Graphs Below the Radar - Far Below. Stephen Few. Mayo 2005"</i> <sup>8</sup>
+      </div>
+      <div class="w3-content w3-justify" style="max-width:800px">
+        <hr class="w3-opacity">
+      </div>      
+      <h2>Ejemplo: Kaggle - World University Rankings</h2>
+      <h3>Universidades de México - 2016</h3>
+      <h4></h4>
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
+
+      <h4>Juego de datos</h4>
+      <p>Fuente de datos: <a href="https://www.kaggle.com/datasets/mylesoneill/world-university-rankings?select=timesData.csv">Kaggle - World University Rankings</a></p>
+      <p>Archivo: timesData.csv</p>
+      <p>2604 registros, 14 atributos, Atributos mixtos.</p>
+      <div class="w3-center">
+        <img src="img/universidades.png" alt="" width="800px;"><br>
+        <i>Imagen de: "Kaggle - World University Rankings"</i> <sup>9</sup>
+      </div>
+      <p></p>
+    </div>
+  </div>
+
+
+
+
+  <!-- HEATMAP section -->
+  <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+    <div class="w3-content" style="max-width:600px">
+      <h4 class="w3-center"><b>Heatmap</b></h4>
+        <!-- Create a div where the graph will take place -->
+        <div id="my_dataviz_hm"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-grey">  
+    <div class="w3-row-padding">
+      <h3>Referencias:</h3>
+      <p>(1) - <a href="https://www.jaspersoft.com/articles/what-is-a-radar-chart#:~:text=A%20radar%20chart%20displays%20multivariate,also%20called%20a%20spider%20chart." target="_blank">https://www.jaspersoft.com/articles/what-is-a-radar-chart#:~:text=A%20radar%20chart%20displays%20multivariate,also%20called%20a%20spider%20chart.</a></p>
+      <p>(2) - <a href="https://www.elsevier.es/es-revista-revista-medica-clinica-las-condes-202-articulo-florence-nigthingale-la-enfermeria-y-S0716864018300683" target="_blank">https://www.elsevier.es/es-revista-revista-medica-clinica-las-condes-202-articulo-florence-nigthingale-la-enfermeria-y-S0716864018300683</a></p>
+      <p>(3) - <a href="https://www.rct.uk/collection/1075240/notes-on-matters-affecting-the-health-efficiency-and-hospital-administration-of" target="_blank">https://www.rct.uk/collection/1075240/notes-on-matters-affecting-the-health-efficiency-and-hospital-administration-of</a></p>
+      <p>(4) - <a href="https://archive.org/details/diegesetzmssi00mayr/page/78/mode/2up" target="_blank">https://archive.org/details/diegesetzmssi00mayr/page/78/mode/2up</a></p>
+      <p>(5) - <a href="https://www.ibm.com/docs/en/spss-modeler/saas?topic=types-radar-charts" target="_blank">https://www.ibm.com/docs/en/spss-modeler/saas?topic=types-radar-charts</a></p>
+      <p>(6) - <a href="https://www.data-to-viz.com/caveat/spider.html" target="_blank">https://www.data-to-viz.com/caveat/spider.html</a></p>
+      <p>(7) - <a href="https://blog.scottlogic.com/2011/09/23/a-critique-of-radar-charts.html#chart2" target="_blank">https://blog.scottlogic.com/2011/09/23/a-critique-of-radar-charts.html#chart2</a></p>
+      <p>(8) - <a href="https://www.perceptualedge.com/articles/dmreview/radar_graphs.pdf" target="_blank">https://www.perceptualedge.com/articles/dmreview/radar_graphs.pdf</a></p>
+      <p>(9) - <a href="https://www.kaggle.com/datasets/mylesoneill/world-university-rankings?select=timesData.csv" target="_blank">https://www.kaggle.com/datasets/mylesoneill/world-university-rankings?select=timesData.csv</a></p>
+      <p>() - <a href="" target="_blank"></a></p>
+      <p>() - <a href="" target="_blank"></a></p>
+      <p>() - <a href="" target="_blank"></a></p>
+      <p>() - <a href="" target="_blank"></a></p>
+      <p>() - <a href="" target="_blank"></a></p>
+      <p>() - <a href="" target="_blank"></a></p>
+      <p>() - <a href="" target="_blank"></a></p>
+      
+    </div>
+  </footer>
+  
+  <div class="w3-black w3-center w3-padding-24">Cuauhtémoc Alejandro Medina Uicab</div>
+
+<!-- End page content -->
+</div>
+
+<script>
+
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+
+</script>
+
+
+<script>
+
+  // set the dimensions and margins of the graph
+  var margin = {top: 30, right: 30, bottom: 30, left: 30},
+    width = 450 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+  
+  // append the svg object to the body of the page
+  var svg = d3.select("#my_dataviz_hm")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+  
+  // Labels of row and columns
+  var myGroups = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+  var myVars = ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8", "v9", "v10"]
+  
+  // Build X scales and axis:
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(myGroups)
+    .padding(0.01);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+  
+  // Build X scales and axis:
+  var y = d3.scaleBand()
+    .range([ height, 0 ])
+    .domain(myVars)
+    .padding(0.01);
+  svg.append("g")
+    .call(d3.axisLeft(y));
+  
+  // Build color scale
+  var myColor = d3.scaleLinear()
+    .range(["white", "#69b3a2"])
+    .domain([1,100])
+  
+  //Read the data
+  d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/heatmap_data.csv", function(data) {
+  
+    // create a tooltip
+    var tooltip = d3.select("#my_dataviz_hm")
+      .append("div")
+      .style("opacity", 0)
+      .attr("class", "tooltip")
+      .style("background-color", "white")
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .style("padding", "5px")
+  
+    // Three function that change the tooltip when user hover / move / leave a cell
+    var mouseover = function(d) {
+      tooltip.style("opacity", 1)
+    }
+    var mousemove = function(d) {
+      tooltip
+        .html("The exact value of<br>this cell is: " + d.value)
+        .style("left", (d3.mouse(this)[0]+70) + "px")
+        .style("top", (d3.mouse(this)[1]) + "px")
+    }
+    var mouseleave = function(d) {
+      tooltip.style("opacity", 0)
+    }
+  
+    // add the squares
+    svg.selectAll()
+      .data(data, function(d) {return d.group+':'+d.variable;})
+      .enter()
+      .append("rect")
+        .attr("x", function(d) { return x(d.group) })
+        .attr("y", function(d) { return y(d.variable) })
+        .attr("width", x.bandwidth() )
+        .attr("height", y.bandwidth() )
+        .style("fill", function(d) { return myColor(d.value)} )
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseleave", mouseleave)
+  })
+  
+  </script>
+
+<script>
+   const ctx = document.getElementById('myChart');
+      const data = {
+        labels: [
+            'teaching',
+            'international',
+            'research',
+            'citations',
+            'income',
+            'num_students'
+        ],
+        datasets: [{
+            label: 'Monterrey Institute of Technology and Higher Education',
+            data: [23.9,59.6,12.7,23.4,75.8,14],
+            fill: true,
+            backgroundColor: 'rgba(159, 34, 65, 0.1)',
+            borderColor: 'rgb(159, 34, 65)',
+            pointBackgroundColor: 'rgb(159, 34, 65)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(159, 34, 65)'
+        }, {
+            label: 'National Autonomous University of Mexico',
+            data: [42.7,35.9,40.2,14.8,63.7,137],
+            fill: true,
+            backgroundColor: 'rgba(35, 91, 78, 0.2)',
+            borderColor: 'rgb(35, 91, 78)',
+            pointBackgroundColor: 'rgb(35, 91, 78)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(35, 91, 78)'
+        }]
+        };
+
+        const config = {
+            type: 'radar',
+            data: data,
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scale: {
+                    pointLabels: {
+                    fontSize: 12
+                    }
+                }
+            },
+            };
+
+       const myCht = new Chart(ctx, config);  
+       const myRadarChart = myCht;   
+
+
+</script>
+
+</body>
+</html>
