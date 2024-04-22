@@ -79,11 +79,10 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <br><br>
   </div>
 
-  <!-- About section -->
+  <!-- RADAR -->
   <div class="w3-container w3-dark-grey w3-text-light-grey w3-padding-32" id="radar">
-    <h2><b>Radar chart</b></h2>
-
-
+    
+    <h2><img src="img/radar.png" alt="" width="50px;">  <b>Radar chart</b></h2>
   </div>
   <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
     <div class="w3-content" style="max-width:800px">
@@ -136,17 +135,107 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
   </div>
 
-
-
-
-  <!-- HEATMAP section -->
+  <!-- RIDGELINE -->
+  <div class="w3-container w3-dark-grey w3-text-light-grey w3-padding-32" id="ridgeline">
+    <h2><img src="img/ridgeline.png" alt="" width="50px;">  <b>Ridgeline chart</b></h2>
+  </div>
   <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
-    <div class="w3-content" style="max-width:600px">
-      <h4 class="w3-center"><b>Heatmap</b></h4>
-        <!-- Create a div where the graph will take place -->
-        <div id="my_dataviz_hm"></div>
+    <div class="w3-content" style="max-width:800px">
+      <h4>Nombre:</h4>
+      <p>Originalmente conocida como Joy Plot. Ridgeline chart (gráfica de cumbres). </p>
+      <h4>Origen:</h4>
+      <p>El nombre del gráfico se originó en honor al album Joy Divisionde 1979, "Unknown Pleasures" que presentaba en su portada un visualización con ondas tipo radio creando un efecto tridimensional. Sin imaginar lo desafortuando que resultaría tal nombre por estar relacionado con el grupo de mujeres judías de los campos de concentración Nazi <sup>10</sup> </p>      
+      <div class="w3-container">
+        <div class="w3-center">
+          <img src="img/joy.png" alt="" width="200px;"><br>
+          <i>Imagen de: "The Flerlage Twins - Joy Plot History"</i> <sup>11</sup>
+        </div>  
+      </div>
+      <h4>Descripción/funcionamiento:</h4>
+      <p>La grafica permite el estudio de la distribución de una variable numérica para distintos grupos. Es posible representar diferentes densidades en diferentes aspectos. </p>
+      <h4>Ejemplos de aplicación:</h4>
+      <p>Uno de los usos populares del gráfico es medir una variable numérica respecto al tiempo, por ejemplo la variación de temperaturas respecto a tiempo. En general sirve para observar la densidad de la distribución de una variable comparada por categorías. </p>
+      <div class="w3-center">
+        <img src="img/joy2.gif" alt="" width="200px;"><br>
+        <i>Imagen de: "Joy plots for climate change. Gavin. Julio 2017"</i> <sup>13</sup>
+      </div>      
+      
+      <h4>Tipo de datos:</h4>
+      <p>Datos numéricos principalmente asociados a categorías. No está limitado a ello, pero la potencia de la visualización se dá al usar tal combinación.</p>      
+      <h4>Limitaciones</h4>
+      <p>La principal limitación es sobre los datos categóricos que no pueden ser demasiados. La belleza del gráfico depende del traslape de las curvas de densidad y ahí existe otra limitante en cuanto a la cantidad de traslape y el uso del color.<sup>12</sup></p>
+
+      <div class="w3-content w3-justify" style="max-width:800px">
+        <hr class="w3-opacity">
+      </div>      
+      <h2>Ejemplo: EDA How people spend their time </h2>
+      <h3></h3>
+      <h4></h4>
+      <div>
+        <div id="my_dataviz"></div>
+      </div>
+
+      <h4>Juego de datos</h4>
+      <p>Fuente de datos: <a href="https://www.kaggle.com/code/danielkorth/eda-how-people-spend-their-time/input">Kaggle - [EDA] How people spend their time</a></p>
+      <p>Archivo: time_used.csv</p>
+      <p>33 muestras, para 6 categorías</p>
+      <div class="w3-center">
+        <img src="img/spend.png" alt="" width="800px;"><br>
+        <i>Imagen de: "Kaggle - EDA How people spend their time "</i> <sup></sup>
+      </div>
+      <p></p>
     </div>
   </div>
+
+
+ <!-- HEAT MAP -->
+ <div class="w3-container w3-dark-grey w3-text-light-grey w3-padding-32" id="ridgeline">
+  <h2><img src="img/heatmap.png" alt="" width="50px;">  <b>Heatmap</b></h2>
+</div>
+<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+  <div class="w3-content" style="max-width:800px">
+    <h4>Nombre:</h4>
+    <p>Heatmap o mapas de calor </p>
+    <h4>Origen:</h4>
+    <p>El método de mapas de calor se ha utilizado como técnica de visualización de datos desde el siglo XIX cuando los urbanistas de París utilizaban diferentes colores para marcar el mapa d ela ciudad con el fin de ilustrar datos estadísticos.</p>
+      <div class="w3-container">
+      <div class="w3-center">
+        <img src="img/hm.png" alt="" width="200px;"><br>
+        <i>Imagen de: http://euclid.psych.yorku.ca/SCS/Gallery/images/loua/loua1873-scalogram.jpg</i> <sup>14</sup>
+      </div>  
+    </div>
+    <h4>Descripción/funcionamiento:</h4>
+    <p>El heatmap o mapa de calor muestra simultáneamente un orden jerárquico de renglones y columnas para mostrar la agrupación de datos en una disposición de matriz. Consiste en un arreglo rectangular de celdas donde cada celda tiene asociado una intesidad de color qu representa la intersección correspondiente en la matriz. <sup>15</sup></p>    
+    <h4>Ejemplos de aplicación:</h4>
+    <p>Los mapas de calor tienen múltiples usos. Principalmente muestras la correlación entre variables, para tendencias de análisis web, detección de valores extremos (outliers), entre otros. </p>     
+    
+    <h4>Tipo de datos:</h4>
+    <p>Principalmente sirve para representar datos numéricos. </p>    
+    <h4>Limitaciones</h4>
+    <p>Como su vocación es la de mostrar patrones, está limitado al momento de intentar conocer un dato a precisión o un dato particular, generalemente es para la detección de patrones.</p>
+    <div class="w3-content w3-justify" style="max-width:800px">
+      <hr class="w3-opacity">
+    </div>      
+    <h2>Ejemplo: </h2>
+    <h3></h3>
+    <h4></h4>
+    <div>
+      <div id="hm"></div>
+    </div>
+
+    <h4>Juego de datos</h4>
+    <p>Fuente de datos: <a href="">Kaggle - </a></p>
+    <p>Archivo: hm.csv</p>
+    <p></p>
+    <div class="w3-center">
+      <img src="img/.png" alt="" width="800px;"><br>
+      <i>Imagen de: "Kaggle -  "</i> <sup></sup>
+    </div>
+    <p></p>
+  </div>
+</div>
+
+
 
   <!-- Footer -->
   <footer class="w3-container w3-padding-32 w3-grey">  
@@ -161,13 +250,13 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <p>(7) - <a href="https://blog.scottlogic.com/2011/09/23/a-critique-of-radar-charts.html#chart2" target="_blank">https://blog.scottlogic.com/2011/09/23/a-critique-of-radar-charts.html#chart2</a></p>
       <p>(8) - <a href="https://www.perceptualedge.com/articles/dmreview/radar_graphs.pdf" target="_blank">https://www.perceptualedge.com/articles/dmreview/radar_graphs.pdf</a></p>
       <p>(9) - <a href="https://www.kaggle.com/datasets/mylesoneill/world-university-rankings?select=timesData.csv" target="_blank">https://www.kaggle.com/datasets/mylesoneill/world-university-rankings?select=timesData.csv</a></p>
-      <p>() - <a href="" target="_blank"></a></p>
-      <p>() - <a href="" target="_blank"></a></p>
-      <p>() - <a href="" target="_blank"></a></p>
-      <p>() - <a href="" target="_blank"></a></p>
-      <p>() - <a href="" target="_blank"></a></p>
-      <p>() - <a href="" target="_blank"></a></p>
-      <p>() - <a href="" target="_blank"></a></p>
+      <p>(10) - <a href="https://clauswilke.com/blog/2017/09/15/goodbye-joyplots/" target="_blank">https://clauswilke.com/blog/2017/09/15/goodbye-joyplots/</a></p>
+      <p>(11) - <a href="https://www.flerlagetwins.com/2018/05/joy-plot.html#:~:text=Joy%20Plot%20History,essentially%20what%20joy%20plots%20are." target="_blank">https://www.flerlagetwins.com/2018/05/joy-plot.html#:~:text=Joy%20Plot%20History,essentially%20what%20joy%20plots%20are.</a></p>
+      <p>(12) - <a href="https://dataforvisualization.com/charts/ridgeline/" target="_blank">https://dataforvisualization.com/charts/ridgeline/</a></p>
+      <p>(13) - <a href="https://www.realclimate.org/index.php/archives/2017/07/joy-plots-for-climate-change/" target="_blank">https://www.realclimate.org/index.php/archives/2017/07/joy-plots-for-climate-change/</a></p>
+      <p>(14) - <a href="http://euclid.psych.yorku.ca/SCS/Gallery/images/loua/loua1873-scalogram.jpg" target="_blank">http://euclid.psych.yorku.ca/SCS/Gallery/images/loua/loua1873-scalogram.jpg</a></p>
+      <p>(15) - <a href="https://www.cs.uic.edu/~wilkinson/Publications/heatmap.pdf" target="_blank">https://www.cs.uic.edu/~wilkinson/Publications/heatmap.pdf</a></p>
+      <p>(16) - <a href="https://www.stat.berkeley.edu/~binyu/ps/papers2017/superheat17.pdf" target="_blank">https://www.stat.berkeley.edu/~binyu/ps/papers2017/superheat17.pdf</a></p>
       
     </div>
   </footer>
@@ -192,7 +281,7 @@ function w3_close() {
 
 </script>
 
-
+<!-- heatmap -->
 <script>
 
   // set the dimensions and margins of the graph
@@ -201,7 +290,7 @@ function w3_close() {
     height = 450 - margin.top - margin.bottom;
   
   // append the svg object to the body of the page
-  var svg = d3.select("#my_dataviz_hm")
+  var svg = d3.select("#hm")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -239,7 +328,7 @@ function w3_close() {
   d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/heatmap_data.csv", function(data) {
   
     // create a tooltip
-    var tooltip = d3.select("#my_dataviz_hm")
+    var tooltip = d3.select("#hm")
       .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
@@ -280,6 +369,8 @@ function w3_close() {
   
   </script>
 
+
+<!-- radar -->
 <script>
    const ctx = document.getElementById('myChart');
       const data = {
@@ -336,6 +427,96 @@ function w3_close() {
 
 
 </script>
+
+
+<!-- ridgeline -->
+<script>
+
+  // set the dimensions and margins of the graph
+  var margin = {top: 60, right: 30, bottom: 20, left:110},
+      width = 460 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
+  
+  // append the svg object to the body of the page
+  var svg = d3.select("#my_dataviz")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+  
+  //read data
+  d3.csv("https://kmualex.github.io/pec2-M2859-aula2/time_used.csv", function(data) {
+  
+    // Get the different categories and count them
+    var categories = data.columns
+    var n = categories.length
+  
+    // Add X axis
+    var x = d3.scaleLinear()
+      .domain([-10, 140])
+      .range([ 0, width ]);
+    svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+  
+    // Create a Y scale for densities
+    var y = d3.scaleLinear()
+      .domain([0, 0.4])
+      .range([ height, 0]);
+  
+    // Create the Y axis for names
+    var yName = d3.scaleBand()
+      .domain(categories)
+      .range([0, height])
+      .paddingInner(1)
+    svg.append("g")
+      .call(d3.axisLeft(yName));
+  
+    // Compute kernel density estimation for each column:
+    var kde = kernelDensityEstimator(kernelEpanechnikov(7), x.ticks(40)) // increase this 40 for more accurate density.
+    var allDensity = []
+    for (i = 0; i < n; i++) {
+        key = categories[i]
+        density = kde( data.map(function(d){  return d[key]; }) )
+        allDensity.push({key: key, density: density})
+    }
+  
+    // Add areas
+    svg.selectAll("areas")
+      .data(allDensity)
+      .enter()
+      .append("path")
+        .attr("transform", function(d){return("translate(0," + (yName(d.key)-height) +")" )})
+        .datum(function(d){return(d.density)})
+        .attr("fill", "#69b3a2")
+        .attr("stroke", "#000")
+        .attr("stroke-width", 1)
+        .attr("d",  d3.line()
+            .curve(d3.curveBasis)
+            .x(function(d) { return x(d[0]); })
+            .y(function(d) { return y(d[1]); })
+        )
+  
+  })
+  
+  // This is what I need to compute kernel density estimation
+  function kernelDensityEstimator(kernel, X) {
+    return function(V) {
+      return X.map(function(x) {
+        return [x, d3.mean(V, function(v) { return kernel(x - v); })];
+      });
+    };
+  }
+  function kernelEpanechnikov(k) {
+    return function(v) {
+      return Math.abs(v /= k) <= 1 ? 0.75 * (1 - v * v) / k : 0;
+    };
+  }
+  
+  </script>
+
 
 </body>
 </html>
